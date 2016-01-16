@@ -1,21 +1,27 @@
 //const http = require('http');
-const con = require(__dirname + '/../lib/frame.js');
+const Constructor = require(__dirname + '/../lib/frame');
+const http = require('http');
+const url = require('url');
 
+var con = new Constructor();
+
+var server = http.createServer((req,res) => {
   req.requrl = url.parse(req.url, true);
   var path = req.requrl.pathname;
-  if (req.method === 'GET' && (path === '/' || path ==='/home') {
+  if (req.method === 'GET' && (path === '/' || path ==='/home')) {
     res.writeHead(200, {'Content-Type': 'text/html'});
-  	var greeting = 'Hello World';
-    res.write(greeting); 
+  	var greeting = '<h1>Hello World</h1>';
+    res.write(greeting);
     return res.end();
 
   } else {
-      res.writeHead(404, {'Content-Type': 'text/html'});
-      res.write('Page not found');
-      return res.end();
+      con.four04(res);
+      //con.logger;
+      ////////
+      //res.writeHead(404, {'Content-Type': 'text/html'});
+      //res.write('Page not found');
+      //return res.end();
   }
-});
-
-server.listen(3000, () => { console.log('server started')});
+}).listen(3000, () => { console.log('server started')});
 
 module.exports = server;

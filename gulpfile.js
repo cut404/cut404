@@ -1,7 +1,7 @@
 const gulp = require('gulp'),
       eslint = require('gulp-eslint'),
       mocha = require('gulp-mocha'),
-      files = ['test/*.js', '!node_modules//**'];
+      files = ['test/*.js', '!node_modules//**',__dirname + '/../lib/*.js'];
 
 gulp.task('lint', function() {
   return gulp.src(files)
