@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/test.js -w"
   },
   "author": "Kris Hughes, Jason Montoya, Rob Merrill, Cameron Forras",
   "license": "MIT",

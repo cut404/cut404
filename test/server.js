@@ -10,20 +10,33 @@ var server = http.createServer((req,res) => {
   req.requrl = url.parse(req.url, true);
   var path = req.requrl.pathname;
   if (req.method === 'GET' && (path === '/' || path ==='/home')) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    con.writeHeadHTML(res);
+    //res.writeHead(200, {'Content-Type': 'text/html'});
     var html = fs.readFileSync(__dirname + '/../lib/index.html', 'utf8');
     res.write(html);
     return res.end();
 
+  } else if (req.method === 'GET' && (path === '/plain')) {
+   //res.writeHead(200, {'Content-Type': 'text/html'});
+   con.writeHeadPLAIN(res);
+   var greeting = 'Hello World';
+   res.write(greeting);
+   return res.end();
+
+  } else if (req.method === 'GET' && (path === '/json')) {
+   //res.writeHead(200, {'Content-Type': 'text/html'});
+   con.writeHeadJSON(res);
+   res.write(JSON.stringify({'msg': 'Hello World'}));
+   return res.end();
+
   } else {
       con.four04(res);
-
-  //  res.writeHead(404, {'Content-Type': 'text/html'});
-  //  var html = fs.readFileSync(__dirname + '/../lib/404.html', 'utf8');
-  //  res.write(html);
-  //  return res.end();
-
   }
-}).listen(3000, () => { console.log('server started')});
+}).listen(3000, () => { console.log('server started');});
 
 module.exports = server;
+
+
+
+
+
