@@ -35,8 +35,3 @@ var server = http.createServer((req,res) => {
 }).listen(3000, () => { console.log('server started');});
 
 module.exports = server;
-
-
-
-
-
