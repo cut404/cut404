@@ -12,7 +12,7 @@ describe('cut404', () => {
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
-        var html = fs.readFileSync(__dirname + '/../lib/index.html', 'utf8');
+        var html = fs.readFileSync(__dirname + '/../test/index.html', 'utf8');
         expect(res.text).to.eql(html);
         done();
       });

@@ -12,7 +12,7 @@ var server = http.createServer((req,res) => {
   if (req.method === 'GET' && (path === '/' || path ==='/home')) {
     con.writeHeadHTML(res);
     //res.writeHead(200, {'Content-Type': 'text/html'});
-    var html = fs.readFileSync(__dirname + '/../lib/index.html', 'utf8');
+    var html = fs.readFileSync(__dirname + '/../test/index.html', 'utf8');
     res.write(html);
     return res.end();
 
