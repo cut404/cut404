@@ -1,5 +1,5 @@
 {
-  "name": "Cut404",
+  "name": "cut404",
   "version": "1.0.0",
   "description": "Simple 404 framework for CodeFellows JS401",
   "main": "/../lib/frame.js",
@@ -16,9 +16,9 @@
   "keywords": [
     "404",
     "code404",
-    "Cut404",
-    "Awesome 404 Page",
-    "404 Page"
+    "cut404",
+    "awesome 404 page",
+    "404 page"
   ],
   "author": "Kris Hughes, Jason Montoya, Rob Merrill, Cameron Forras",
   "license": "MIT",
