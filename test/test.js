@@ -1,39 +1,39 @@
 const chai = require('chai');
-const server = require(__dirname + '/../lib/httpserver.js');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const expect = chai.expect;
 const request = chai.request;
+const fs = require('fs');
 
-describe('simple http server', () => {
-  it('should respond to a request to time for current time', (done) => {
+describe('cut404', () => {
+  it('should open the home page', (done) => {
     request('localhost:3000')
-      .get('/time')
-      .end((err,res) => {
+      .get('/' || '/home')
+      .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
-        expect(res.body).to.eql({'msg': server.gettingDate()});
+        var html = fs.readFileSync(__dirname + '/../test/index.html', 'utf8');
+        expect(res.text).to.eql(html);
         done();
       });
   });
-  it('should respond to req to /greet/name to send greet name in string', (done) => {
+  it('should have a separate get request to /plain that sends a plain text of hello world', (done) => {
     request('localhost:3000')
-    .get('/greet/' + 'Joe')
-    .end((err,res) => {
-      expect(err).to.eql(null);
-      expect(res).to.have.status(200);
-      expect(res.body).to.eql({'msg': 'Hello Joe'});
-      done();
-    });
-  });
-  it('should have a separate post request to /greet that takes JSON name', (done) => {
-    request('localhost:3000')
-    .post('/greet')
-    .send({ msg: 'Luke' })
+    .get('/plain')
     .end((err, res) => {
       expect(err).to.eql(null);
       expect(res).to.have.status(200);
-      expect(res.text).to.eql('Hello Luke');
+      expect(res.text).to.eql('Hello World');
+      done();
+    });
+  });
+  it('should have a separate get request to /json that sends a JSON name', (done) => {
+    request('localhost:3000')
+    .get('/json')
+    .end((err, res) => {
+      expect(err).to.eql(null);
+      expect(res).to.have.status(200);
+      expect(res.body).to.eql({msg: 'Hello World'});
       done();
     });
   });
@@ -43,7 +43,8 @@ describe('simple http server', () => {
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(404);
-        expect(res.body.msg).to.eql('page not found');
+        var html = fs.readFileSync(__dirname + '/../lib/404.html', 'utf8');
+        expect(res.text).to.eql(html);
         done();
       });
   });

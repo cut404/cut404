@@ -8,9 +8,9 @@ gulp.task('lint', function() {
     .pipe(eslint({
       extends: 'eslint:recommended', // imports general rules
       ecmaFeatures: {
-        'modules': true,       // allows modules
+        'modules': true,        // allows modules
         'blockBindings': true,  // allows const
-        'arrowFunctions': true   //allows arrow functions
+        'arrowFunctions': true  // allows arrow functions
       },
       'rules': {
         'no-console': 0,       // allows console.logs without throwing err

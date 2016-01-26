@@ -1,16 +1,31 @@
 {
-  "name": "week2team",
-  "version": "0.1.0",
+  "name": "Cut404",
+  "version": "1.0.0",
   "description": "Simple 404 framework for CodeFellows JS401",
-  "main": "index.js",
+  "main": "/../lib/frame.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/test.js -w"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cut404/cut404.git"
+  },
+  "keywords": [
+    "404",
+    "code404",
+    "Cut404",
+    "Awesome 404 Page",
+    "404 Page"
+  ],
   "author": "Kris Hughes, Jason Montoya, Rob Merrill, Cameron Forras",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cut404/cut404/issues"
+  },
+  "homepage": "https://github.com/cut404/cut404#readme",
   "devDependencies": {
     "chai": "^3.4.1",
     "chai-http": "^1.0.0",
