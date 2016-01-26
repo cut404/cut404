@@ -1,6 +1,7 @@
 # cut404
 
 Welcome to the Cut404 REST API docs page.
+By: Kris Hughes, Jason Montoya, Rob Merrill, Cameron Forras
 
 Tired of the same plain and ugly 404 page?
 Why not use our rad Cut404 page that is sure to turn heads.
@@ -11,11 +12,12 @@ We have also included instructions for where developers can add their own custom
 picture to the 404 page if they would like to use their own instead of our selection.
 
 
-USAGE
+# USAGE
 
-When wanting to implement Cut404 into your own project:
+    When wanting to implement Cut404 into your own project
+    be sure to place the following to use the
+    custom 404 page and content types:
 
-1. Be sure to place the following to use the custom 404 page and content types:
 
     const Constructor = require('Cut404');
     var con = new Constructor();
@@ -26,11 +28,12 @@ When wanting to implement Cut404 into your own project:
     con.writeHeadJSON(res);
 
 # con.four04(res)
-    This function is the main feature of Cut404. This will reference to a custom
-    404 Page. This feature removes clutter of typing typical 404 response and
-    presents a readable 404 response to user.
+    This function is the main feature of Cut404. This will reference to a
+    custom 404 Page. This feature removes clutter of typing typical 404
+    response and presents a readable 404 response to user.
 
-    For a customized picture you can input URL on line 27 of 'cut404/lib/404.html'
+    For a customized picture you can input URL on line 27 of
+    'cut404/lib/404.html'
 
 # con.writeHeadHTML(res)
     This function removes clutter of typing the following:
