@@ -1,6 +1,6 @@
 {
   "name": "cut404",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "description": "Simple 404 framework for CodeFellows JS401",
   "main": "/../lib/frame.js",
   "directories": {
